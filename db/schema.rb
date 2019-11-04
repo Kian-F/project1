@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_010410) do
+ActiveRecord::Schema.define(version: 2019_11_04_220337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "club_stadia", force: :cascade do |t|
-    t.integer "club_id"
-    t.integer "stadium_id"
-  end
 
   create_table "clubs", force: :cascade do |t|
     t.text "name"
@@ -30,6 +25,12 @@ ActiveRecord::Schema.define(version: 2019_11_04_010410) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "image"
+    t.integer "confederation_id"
+  end
+
+  create_table "clubs_stadia", force: :cascade do |t|
+    t.integer "club_id"
+    t.integer "stadium_id"
   end
 
   create_table "confederations", force: :cascade do |t|
@@ -56,13 +57,14 @@ ActiveRecord::Schema.define(version: 2019_11_04_010410) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "image"
+    t.text "nationality"
   end
 
   create_table "stadia", force: :cascade do |t|
     t.text "name"
     t.date "built"
     t.integer "club_id"
-    t.integer "confederatios_id"
+    t.integer "confederation_id"
     t.text "country"
     t.integer "total_capacity"
     t.datetime "created_at", precision: 6, null: false
@@ -74,7 +76,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_010410) do
     t.text "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digits"
+    t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
 end

@@ -11,3 +11,8 @@ class SessionController < ApplicationController
     redirect_to login_path # We don't render on failure because we don't want to help a cracker.
   end
 end
+def destroy
+  session[:user_id] = nil
+  redirect_to login_path
+end
+end
