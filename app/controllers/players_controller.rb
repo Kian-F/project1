@@ -8,6 +8,11 @@ class PlayersController < ApplicationController
     @player = Player.new
   end
 
+  def create
+    player = Player.create player_params
+    redirect_to player
+  end
+
   def edit
     @player = Player.find params[:id]
   end
@@ -21,10 +26,16 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find params[:id]
   end
+
+def destroy
+  player = Player.find params[:id]
+  player.destroy
+  redirect_to players_path
 end
 
 private
 def player_params
   params.require(:player).permit(:name, :nationality, :club, :position, :dob,
   :market_value, :image)
+end
 end

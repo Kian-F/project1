@@ -3,8 +3,8 @@
  <%= f.text_field :name, :required => true, :autofocus => true %>
  <%= f.label :nationality  %>
  <%= f.text_field :nationality %>
- <%= f.label :club  %>
- <%# <%= f.text_field :club %> %>
+ <%= f.label :club_id  %>
+  <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
  <%= f.label :position  %>
  <%= f.text_field :position %>
  <%= f.label :dob, "Date of birth" %>
