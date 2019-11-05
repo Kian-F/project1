@@ -16,12 +16,16 @@
       <% if @current_user.admin? %>
         <%= link_to "All Users", users_path %>
       <% end %>
-      <%= link_to "New Player", new_player_path %>
+
       <%= link_to "Log out #{ @current_user.email }", login_path, :method => 'delete' %>
     <% else %>
       <%= link_to "Sign up", new_user_path %>
       <%= link_to "Log in", login_path %>
     <% end %>
+    |
+    <%= link_to "All Players", players_path %>
+    <%= link_to "New Player", new_player_path %>
+
   </nav>
     <%= yield %>
   </body>

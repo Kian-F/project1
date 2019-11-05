@@ -5,9 +5,6 @@ puts "#{User.count} users created"
 
 
 Player.destroy_all
-p1 = Player.create(:name =>'Lionel Messi', :nationality => 'Argantina', :dob => '', :market_value => '150',
-:image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/2c22eb75-7530-47bc-9ea8-92b492b6780a/Messi-600x708.png?width=1340&height=1580',
-:position => 'Right Winger', :goals => '')
 p1 = Player.create(:name => 'Lionel Messi', :nationality => 'Argantina', :dob => '24-05-1987', :market_value => '150',
 :position => 'Right Winger',
 :image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/2c22eb75-7530-47bc-9ea8-92b492b6780a/Messi-600x708.png?width=1340&height=1580',
@@ -48,7 +45,8 @@ puts "#{ Stadium.count } stadia created"
 # Associations #################################################################
 puts "players and clubs"
 c1.players << p1
-# c2.players << p2
+c1.players << p2
+c1.players << p3
 
 puts "Clubs and Stadia"
 c1.stadia << s1

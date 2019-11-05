@@ -1,0 +1,13 @@
+<h1>All Players</h1>
+<% @players.each do |player| %>
+  <%= image_tag player.image, :class => 'thumb' if player.image.present? %>
+  <ul>
+    <li>Name: <%= link_to player.name, player_path(player.id) %></li>
+    <li>Nationality: <%= player.nationality %></li>
+    <li>Date of birth: <%= player.dob.strftime '%A, %B %e, %Y' if player.dob.present? %></li>
+    <li>marke Value: <%= player.market_value %></li>
+    <li>Position: <%= player.position %></li>
+    <li>Club: <%= player.club.try(:name) %></li>
+
+  </ul>
+<% end %>
