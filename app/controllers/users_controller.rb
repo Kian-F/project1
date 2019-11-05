@@ -1,15 +1,15 @@
-class UserController < ApplicationController
- before_action :check_for_admin, :only => [:index]
+class UsersController < ApplicationController
+  before_action :check_for_admin, :only => [:index]
+
   def index
-     @users = User.all
-   end
+    @users = User.all
+  end
 
   def new
     @user = User.new
   end
 
-
-def create
+  def create
     @user = User.new user_params
     if @user.save # Returns truthy value on success
       session[:user_id] = @user.id
@@ -20,7 +20,7 @@ def create
   end
 
   private
-def user_params
-  params.require(:user).permit(:email, :password, :password_confirmation)
-end
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end
