@@ -1,9 +1,9 @@
 class PlayersController < ApplicationController
-  before_action :check_for_login
-  def index
-    @players = Player.all
-  end
 
+  def index
+    @players = Player.order 'market_value DESC'
+  end
+ before_action :check_for_login
   def new
     @player = Player.new
   end
@@ -35,7 +35,7 @@ end
 
 private
 def player_params
-  params.require(:player).permit(:name, :nationality, :club, :position, :dob,
+  params.require(:player).permit(:name, :nationality, :club_id, :position, :dob,
   :market_value, :image)
 end
 end

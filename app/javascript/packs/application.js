@@ -7,6 +7,14 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 
 
+import Tablesort from 'tablesort/dist/tablesort.min';
+$(document).ready(function () {
+  const players = document.querySelector('table#players');
+  if (players) {
+    new Tablesort(players);
+  }
+})
+
 
 
 
