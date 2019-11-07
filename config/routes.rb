@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
    resources :users, :only => [:new, :create, :index]
 
-   get '/login' => 'session#new'
+   get '/login' => 'session#mnew'
    post '/login' => 'session#create'
    delete '/login' => 'session#destroy'
 
+  get '/players/my' => 'players#my_players', as: 'my_players'
   resources :players
+
 
 
 end

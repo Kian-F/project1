@@ -64,3 +64,5 @@ co2.stadiums << s2
 puts "Confederations and players"
 co1.players << p1
 # p2.confederation << co1
+puts "Users and players"
+u2.players << p1

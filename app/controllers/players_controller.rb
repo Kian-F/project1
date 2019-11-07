@@ -1,16 +1,23 @@
 class PlayersController < ApplicationController
+ before_action :check_for_login
 
   def index
     @players = Player.order 'market_value DESC'
   end
- before_action :check_for_login
+  def my_players
+    @players = @current_user.players
+    render :index
+  end
+
   def new
     @player = Player.new
   end
 
   def create
     player = Player.create player_params
+    @current_user.players << player
     redirect_to player
+
   end
 
   def edit
