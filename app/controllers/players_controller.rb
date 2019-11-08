@@ -14,10 +14,17 @@ class PlayersController < ApplicationController
   end
 
   def create
-    player = Player.create player_params
-    @current_user.players << player
-    redirect_to player
-
+    player = Player.new players_prams
+    # player = Player.create player_params
+    # @current_user.players << player
+    # redirect_to player
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      player.image = req["public_id"]
+      player.save
+      @current_user.players << player
+      redirect_to player
+    end
   end
 
   def edit
@@ -43,6 +50,6 @@ end
 private
 def player_params
   params.require(:player).permit(:name, :nationality, :club_id, :position, :dob,
-  :market_value, :image)
+  :market_value)
 end
 end

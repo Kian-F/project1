@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
   root :to => 'pages#home'
 
-   resources :users, :only => [:new, :create, :index]
+   resources :users, :only => [:new, :create, :index, :show]
 
-   get '/login' => 'session#mnew'
+   get '/login' => 'session#new'
    post '/login' => 'session#create'
+   get '/login' => 'session#show'
    delete '/login' => 'session#destroy'
 
   get '/players/my' => 'players#my_players', as: 'my_players'
