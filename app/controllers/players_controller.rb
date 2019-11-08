@@ -14,17 +14,19 @@ class PlayersController < ApplicationController
   end
 
   def create
-    player = Player.new players_prams
+    player = Player.new player_params
     # player = Player.create player_params
     # @current_user.players << player
     # redirect_to player
+
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
       player.image = req["public_id"]
-      player.save
-      @current_user.players << player
-      redirect_to player
     end
+
+    player.save
+    @current_user.players << player
+    redirect_to player
   end
 
   def edit

@@ -23,7 +23,7 @@
       <% @players.each do |player| %>
 
         <tr>
-          <td scope="col"><%= image_tag player.image, :class => 'tiny'%></td>
+          <td scope="col"><%= image_tag player.image, :class => 'tiny' if player.image.present? %></td>
           <td scope="col"><%= link_to player.name, player_path(player.id) %></td>
           <td scope="col"><%= player.nationality %></td>
           <td scope="col"><%= player.club.try(:name) %> <%= image_tag(player.club.image,  :class =>'tiny')if player.club.present? %></td>

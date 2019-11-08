@@ -24,7 +24,7 @@
           <a class="nav-link" href:<%= link_to "All Players", players_path %></a>
           <% if @current_user.present? %>
             <% if @current_user.admin? %>
-              <%= link_to "All Users", users_path %>
+              <a class="nav-link" href:<%= link_to "All Users", users_path %></a>
             <% else %>
               <a class="nav-link" href:<%= link_to "My Players", my_players_path %></a>
               <a class="nav-link" href:<%= link_to "New Player", new_player_path %></a>
@@ -33,7 +33,7 @@
           <% else %>
             <a class="nav-link" href:<%= link_to "Agent's Sign up", new_user_path %></a>
             <a class="nav-link" href:<%= link_to "Log in", login_path %></a>
-            
+
           <% end %>
 
 
