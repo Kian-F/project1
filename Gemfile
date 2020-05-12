@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 
+gem 'httparty', '~> 0.13.7'
+
 gem 'cloudinary'
 
 
