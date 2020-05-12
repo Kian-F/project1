@@ -73,7 +73,8 @@ Player.destroy_all
 clubs = Club.all 
 player_count = 0;
 clubs.each do |club|
-    club_sportsdb_id = club[sportsdb_id] url_for_players = https://api-football-v1.p.rapidapi.com/v2/teams/team/#{club_sportsdb_id}
+    club_sportsdb_id = club[sportsdb_id] 
+    url_for_players = "https://api-football-v1.p.rapidapi.com/v2/teams/team/#{club_sportsdb_id}"
     data = HTTParty.get url_for_players
     players = data[player] players.each do |player|
         new_player = Player.new
@@ -84,12 +85,16 @@ clubs.each do |club|
         new_player.nationality = player["nationality"]   
         # new_player.image = player["s“rThumb"]”    
         new_player.save
+        
     club.players << new_player
     sleep(1)
   end
 end
-puts "“{ Player.count } players created."
+puts "#{ Player.count } players created."
 puts "Players and Clubs."
+puts data.conde 
+        puts data.body
+        puts data.to_a
 
 end
 
