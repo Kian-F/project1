@@ -1,3 +1,5 @@
+
+
 User.destroy_all
 u1 = User.create :email => 'kian@gmail.com', :password => 'chicken', :admin => true
 u2 = User.create :email => 'info@bundesliga-agent.com', :password => 'chicken'
@@ -41,62 +43,68 @@ puts "#{ Player.count } players created"
 
 Club.destroy_all
 c1 = Club.create(:name =>'FC Barcelona', :league => 'Laliga', :country => 'Spain', :manager => 'Ernesto Valverde',
-:image => 'https://logos-download.com/wp-content/uploads/2016/05/FC_Barcelona_logo_logotipo_crest.png', :sportsdb_id => 133739)
+:image => 'https://logos-download.com/wp-content/uploads/2016/05/FC_Barcelona_logo_logotipo_crest.png', :sportdb_id => 133739)
 
 c2 = Club.create(:name =>'São Paulo Futebol Clube', :league => 'Brazil Série A
 ', :country => 'Brazil', :manager => 'Fernando Diniz',
-:image => 'https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_FC#/media/File:Brasao_do_Sao_Paulo_Futebol_Clube.svg', :sportsdb_id => 134291)
+:image => 'https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_FC#/media/File:Brasao_do_Sao_Paulo_Futebol_Clube.svg', :sportdb_id => 134291)
 
 c3 = Club.create(:name =>'Paris Saint-Germain F.C.', :league => 'Ligue 1
 ', :country => 'France', :manager => 'Thomas Tuchel',
-:image => 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg', :sportsdb_id => 133714)
+:image => 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg', :sportdb_id => 133714)
 
 c4 = Club.create(:name =>'Tottenham Hotspur F.C.', :league => 'Premier League
 ', :country => 'England', :manager => 'Mauricio Pochettino',
-:image => 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/800px-Tottenham_Hotspur.svg.png', :sportsdb_id => 133616)
+:image => 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/800px-Tottenham_Hotspur.svg.png', :sportdb_id => 133616)
 
 c5 = Club.create(:name =>'Liverpool FC', :league => 'Premier League
 ', :country => 'England', :manager => 'Jürgen Klopp',
-:image => 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg', :sportsdb_id => 133602)
+:image => 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg', :sportdb_id => 133602)
 
 c6 = Club.create(:name =>'Real Madred', :league => 'Laliga
 ', :country => 'Spain', :manager => 'Zinédine Zidane',
-:image => 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg', :sportsdb_id => 133738)
+:image => 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg', :sportdb_id => 133738)
 
 c7 = Club.create(:name =>'Manchester United', :league => 'Premier League
     ', :country => 'England', :manager => 'Ole Gunnar Solskjar',
-    :image => '', :sportsdb_id => 33)
+    :image => '', :sportdb_id => 33)
 
 puts "#{Club.count} clubs created"
 
 Player.destroy_all
+playersId = [34145937, 34145395]
 clubs = Club.all 
 player_count = 0;
-clubs.each do |club|
-    club_sportsdb_id = club[sportsdb_id] 
-    url_for_players = "https://api-football-v1.p.rapidapi.com/v2/teams/team/#{club_sportsdb_id}"
+# clubs.each do |club|
+#     club_sportsdb_id = club[sportsdb_id] 
+    # url_for_players = "https://api-football-v1.p.rapidapi.com/v2/teams/team/#{club_sportsdb_id}"
+    # url_for_players = "https://api-football-v1.p.rapidapi.com/v2/teams/team/33"
+
+    playersId.each do |playerId|
+    url_for_players= "https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=#{playerId}"
+    team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=133604"
+        teamData = HTTParty.get team_url
     data = HTTParty.get url_for_players
-    players = data[player] players.each do |player|
+    players = data['players'] 
+    players.each do |player|
+    
         new_player = Player.new
-        new_player.name =  player['player_name']
-        new_player.dob = player["birth_date"]   
-        new_player.position = player["position"]    
-        # new_player.market_value = player["s“rWage"]
-        new_player.nationality = player["nationality"]   
-        # new_player.image = player["s“rThumb"]”    
+        new_player.name =  player['strPlayer']
+        new_player.dob = player["dateBorn"]   
+        new_player.position = player["strPosition"]    
+        new_player.market_value = player["strWage"]
+        new_player.nationality = player["strNationality"]   
+        new_player.image = player["strThumb"]    
         new_player.save
         
-    club.players << new_player
-    sleep(1)
-  end
-end
+    # club.players << new_player
+    # sleep(1)
+    end 
+end 
+   
 puts "#{ Player.count } players created."
-puts "Players and Clubs."
-puts data.conde 
-        puts data.body
-        puts data.to_a
 
-end
+
 
 Confederation.destroy_all
 co1 = Confederation.create(:name =>'Europe', :country => 'Spain, Germany, England', :league => 'Laliga, Premium League',

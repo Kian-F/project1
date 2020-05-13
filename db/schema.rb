@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_002951) do
+ActiveRecord::Schema.define(version: 2020_05_13_094447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 2019_11_07_002951) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "image"
     t.integer "confederation_id"
+    t.integer "sportdb_id"
   end
 
-  create_table "clubs_stadia", force: :cascade do |t|
+  create_table "clubs_stadia", id: false, force: :cascade do |t|
     t.integer "club_id"
     t.integer "stadium_id"
   end
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_002951) do
   create_table "players", force: :cascade do |t|
     t.text "name"
     t.date "dob"
-    t.integer "market_value"
+    t.text "market_value"
     t.text "position"
     t.integer "goals"
     t.integer "club_id"
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_002951) do
     t.text "nationality"
     t.integer "confederation_id"
     t.integer "user_id"
+    t.text "team"
   end
 
   create_table "stadia", force: :cascade do |t|
