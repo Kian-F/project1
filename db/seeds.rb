@@ -77,55 +77,66 @@ c7 = Club.create(:name =>'Manchester United', :league => 'Premier League
 
     club.each do |club|
         new_club = Club.new 
-        new_club.name = club["strTeam"]
+     new_club.name = club["strTeam"]
+         
         new_club.league = club["strLeague"]
         new_club.country = club["strCountry"]
         new_club.manager = club["strManager"]
         new_club.image = club["strTeamLogo"]
         new_club.sportdb_id = club["idTeam"]
-
+         
         new_club.save
     end
 puts "#{Club.count} clubs created"
 
+
 Player.destroy_all
 playersId = [34145937, 34145395, 34146220, 34145408]
-clubs = Club.all 
-player_count = 0;
-clubs.each do |club|
-#   club_sportsdb_id = club[sportsdb_id] 
-puts club
+teamsId = [133602,133616,133604]
+#playersId = [ 34146220]
+# clubs = Club.all 
+# clubs.each do |club|
+     player_count = 0;
+
+      #club_sportsdb_id = club[sportsdb_id] 
+
 
     playersId.each do |playerId|
-    url_for_players= "https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=#{playerId}"
-    # team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=133624"
-    # teamData = HTTParty.get team_url
-    data = HTTParty.get url_for_players
-    # teamId = teamData['teams']
-    # teamId.each do |team|
-    #    puts team["strTeam"]
-       
-    players = data['players'] 
-    players.each do |player|
+        teamsId.each do |teamId|
+        url_for_players= "https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=#{playerId}"
+         team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=#{teamId}"
+        teamData = HTTParty.get team_url
+        data = HTTParty.get url_for_players
+        teamsData = teamData['teams']
+        teamsData.each do |team|
+        #    puts team["strTeam"]
     
-        new_player = Player.new
-        if club["sportdb_id"] == player["idTeam"]
-            new_player.team =team["strTeam"]  
         
-        new_player.name =  player['strPlayer']
-        new_player.dob = player["dateBorn"]   
-        new_player.position = player["strPosition"]    
-        new_player.market_value = player["strWage"]
-        new_player.nationality = player["strNationality"]   
-        new_player.image = player["strThumb"] 
-         
-        new_player.save
+        players = data['players'] 
+        players.each do |player|
         
-    # club.players << new_player
-    # sleep(1)
-    end 
-end 
-end
+            new_player = Player.new
+            # puts "#{club['sportdb_id']} sport id"
+            #  puts "#{player["idTeam"]} players id team"
+            if  player["idTeam"] == team["idTeam"]
+                
+                new_player.team =team["strTeam"]  
+                new_player.team = team['strTeamLogo']
+                new_player.name =  player['strPlayer']
+                new_player.dob = player["dateBorn"]   
+                new_player.position = player["strPosition"]    
+                new_player.market_value = player["strWage"]
+                new_player.nationality = player["strNationality"]   
+                new_player.image = player["strThumb"] 
+                
+                new_player.save
+        
+                # club.players << new_player
+                # sleep(1)
+            end
+            end
+        end 
+    end
 end 
 puts "#{ Player.count } players created."
 
