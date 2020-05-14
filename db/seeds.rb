@@ -69,39 +69,64 @@ c7 = Club.create(:name =>'Manchester United', :league => 'Premier League
     ', :country => 'England', :manager => 'Ole Gunnar Solskjar',
     :image => '', :sportdb_id => 33)
 
+    Club.destroy_all
+    clubs_url = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League"
+    clubs_data = HTTParty.get clubs_url
+    
+    club = clubs_data['teams']
+
+    club.each do |club|
+        new_club = Club.new 
+        new_club.name = club["strTeam"]
+        new_club.league = club["strLeague"]
+        new_club.country = club["strCountry"]
+        new_club.manager = club["strManager"]
+        new_club.image = club["strTeamLogo"]
+        new_club.sportdb_id = club["idTeam"]
+
+        new_club.save
+    end
 puts "#{Club.count} clubs created"
 
 Player.destroy_all
-playersId = [34145937, 34145395]
+playersId = [34145937, 34145395, 34146220, 34145408]
 clubs = Club.all 
 player_count = 0;
-# clubs.each do |club|
-#     club_sportsdb_id = club[sportsdb_id] 
-    # url_for_players = "https://api-football-v1.p.rapidapi.com/v2/teams/team/#{club_sportsdb_id}"
-    # url_for_players = "https://api-football-v1.p.rapidapi.com/v2/teams/team/33"
+clubs.each do |club|
+#   club_sportsdb_id = club[sportsdb_id] 
+puts club
 
     playersId.each do |playerId|
     url_for_players= "https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=#{playerId}"
-    team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=133604"
-        teamData = HTTParty.get team_url
+    # team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=133624"
+    # teamData = HTTParty.get team_url
     data = HTTParty.get url_for_players
+    # teamId = teamData['teams']
+    # teamId.each do |team|
+    #    puts team["strTeam"]
+       
     players = data['players'] 
     players.each do |player|
     
         new_player = Player.new
+        if club["sportdb_id"] == player["idTeam"]
+            new_player.team =team["strTeam"]  
+        
         new_player.name =  player['strPlayer']
         new_player.dob = player["dateBorn"]   
         new_player.position = player["strPosition"]    
         new_player.market_value = player["strWage"]
         new_player.nationality = player["strNationality"]   
-        new_player.image = player["strThumb"]    
+        new_player.image = player["strThumb"] 
+         
         new_player.save
         
     # club.players << new_player
     # sleep(1)
     end 
 end 
-   
+end
+end 
 puts "#{ Player.count } players created."
 
 
