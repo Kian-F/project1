@@ -6,122 +6,126 @@ u2 = User.create :email => 'info@bundesliga-agent.com', :password => 'chicken'
 puts "#{User.count} users created"
 
 
-Player.destroy_all
-p1 = Player.create(:name => 'Lionel Messi', :nationality => 'Argantina', :dob => '24-05-1987', :market_value => '150,00 mil',
-:position => 'Right Winger',
-:image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/2c22eb75-7530-47bc-9ea8-92b492b6780a/Messi-600x708.png?width=1340&height=1580',
-:goals => '')
-p2 = Player.create(:name => 'Ousmane Dembélé', :nationality => 'France', :dob => '15-05-1997', :market_value => '100,00 mil',
-:position => 'Left Winger',
-:image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/1d0e5cdd-8891-4d8e-9ce4-703f7642a728/Dembele-600x708.png?width=1340&height=1580', :goals => '')
-p3 = Player.create(:name => 'Antoine Griezmann', :nationality => 'France', :dob => '21-03-1991', :market_value => '130,00 mil',
-:position => 'Center-Forward',
-:image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/003f5e86-ddfe-43ff-940e-d4a51605b948/Griezmann-600x708.png?width=1340&height=1580', :goals => '')
+# Player.destroy_all
+# p1 = Player.create(:name => 'Lionel Messi', :nationality => 'Argantina', :dob => '24-05-1987', :market_value => '150,00 mil',
+# :position => 'Right Winger',
+# :image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/2c22eb75-7530-47bc-9ea8-92b492b6780a/Messi-600x708.png?width=1340&height=1580',
+# :goals => '')
+# p2 = Player.create(:name => 'Ousmane Dembélé', :nationality => 'France', :dob => '15-05-1997', :market_value => '100,00 mil',
+# :position => 'Left Winger',
+# :image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/1d0e5cdd-8891-4d8e-9ce4-703f7642a728/Dembele-600x708.png?width=1340&height=1580', :goals => '')
+# p3 = Player.create(:name => 'Antoine Griezmann', :nationality => 'France', :dob => '21-03-1991', :market_value => '130,00 mil',
+# :position => 'Center-Forward',
+# :image => 'https://www.fcbarcelona.com/photo-resources/2019/09/12/003f5e86-ddfe-43ff-940e-d4a51605b948/Griezmann-600x708.png?width=1340&height=1580', :goals => '')
 
-p4 = Player.create(:name => 'Kylian Mbappé', :nationality => 'France', :dob => '20-12-1998', :market_value => '200,00 mil',
-:position => 'Center-Forward',
-:image => 'https://images.psg.media/media/27066/profile-7-mbappe.png?anchor=center&mode=crop&width=800&height=800&quality=80', :goals => '')
+# p4 = Player.create(:name => 'Kylian Mbappé', :nationality => 'France', :dob => '20-12-1998', :market_value => '200,00 mil',
+# :position => 'Center-Forward',
+# :image => 'https://images.psg.media/media/27066/profile-7-mbappe.png?anchor=center&mode=crop&width=800&height=800&quality=80', :goals => '')
 
-p5 = Player.create(:name => 'Neymar', :nationality => 'Brazil', :dob => '05-02-1992', :market_value => '180,00 mil',
-:position => 'Left Winger',
-:image => 'https://images.psg.media/media/27069/profile-10-neymar.png?anchor=center&mode=crop&width=800&height=800&quality=80', :goals => '')
+# p5 = Player.create(:name => 'Neymar', :nationality => 'Brazil', :dob => '05-02-1992', :market_value => '180,00 mil',
+# :position => 'Left Winger',
+# :image => 'https://images.psg.media/media/27069/profile-10-neymar.png?anchor=center&mode=crop&width=800&height=800&quality=80', :goals => '')
 
-p6 = Player.create(:name => 'Mohamed Salah', :nationality => 'Egypt', :dob => '15-06-1992', :market_value => '150,00 mil',
-:position => 'Right Winger',
-:image => 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Mohamed_Salah_2018.jpg', :goals => '')
+# p6 = Player.create(:name => 'Mohamed Salah', :nationality => 'Egypt', :dob => '15-06-1992', :market_value => '150,00 mil',
+# :position => 'Right Winger',
+# :image => 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Mohamed_Salah_2018.jpg', :goals => '')
 
-p7 = Player.create(:name => 'Harry Kane', :nationality => 'England', :dob => '28-07-1993', :market_value => '150,00 mil',
-:position => 'Centre-Forward',
-:image => 'https://tot-tmp.azureedge.net/media/20208/firstteam_harrykane.png?anchor=center&mode=crop&width=750', :goals => '')
+# p7 = Player.create(:name => 'Harry Kane', :nationality => 'England', :dob => '28-07-1993', :market_value => '150,00 mil',
+# :position => 'Centre-Forward',
+# :image => 'https://tot-tmp.azureedge.net/media/20208/firstteam_harrykane.png?anchor=center&mode=crop&width=750', :goals => '')
 
-p8 = Player.create(:name => 'Eden Hazard', :nationality => 'Belgium', :dob => '07-01-1991', :market_value => '150,00 mil',
-:position => 'Left Winger',
-:image => 'https://www.foxsportsasia.com/uploads/2019/07/67378307_2092629264176872_8006985303753490432_n.jpg', :goals => '')
-puts "#{ Player.count } players created"
+# p8 = Player.create(:name => 'Eden Hazard', :nationality => 'Belgium', :dob => '07-01-1991', :market_value => '150,00 mil',
+# :position => 'Left Winger',
+# :image => 'https://www.foxsportsasia.com/uploads/2019/07/67378307_2092629264176872_8006985303753490432_n.jpg', :goals => '')
+# puts "#{ Player.count } players created"
 
 
 
-Club.destroy_all
-c1 = Club.create(:name =>'FC Barcelona', :league => 'Laliga', :country => 'Spain', :manager => 'Ernesto Valverde',
-:image => 'https://logos-download.com/wp-content/uploads/2016/05/FC_Barcelona_logo_logotipo_crest.png', :sportdb_id => 133739)
+# Club.destroy_all
+# c1 = Club.create(:name =>'FC Barcelona', :league => 'Laliga', :country => 'Spain', :manager => 'Ernesto Valverde',
+# :image => 'https://logos-download.com/wp-content/uploads/2016/05/FC_Barcelona_logo_logotipo_crest.png', :sportdb_id => 133739)
 
-c2 = Club.create(:name =>'São Paulo Futebol Clube', :league => 'Brazil Série A
-', :country => 'Brazil', :manager => 'Fernando Diniz',
-:image => 'https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_FC#/media/File:Brasao_do_Sao_Paulo_Futebol_Clube.svg', :sportdb_id => 134291)
+# c2 = Club.create(:name =>'São Paulo Futebol Clube', :league => 'Brazil Série A
+# ', :country => 'Brazil', :manager => 'Fernando Diniz',
+# :image => 'https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_FC#/media/File:Brasao_do_Sao_Paulo_Futebol_Clube.svg', :sportdb_id => 134291)
 
-c3 = Club.create(:name =>'Paris Saint-Germain F.C.', :league => 'Ligue 1
-', :country => 'France', :manager => 'Thomas Tuchel',
-:image => 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg', :sportdb_id => 133714)
+# c3 = Club.create(:name =>'Paris Saint-Germain F.C.', :league => 'Ligue 1
+# ', :country => 'France', :manager => 'Thomas Tuchel',
+# :image => 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg', :sportdb_id => 133714)
 
-c4 = Club.create(:name =>'Tottenham Hotspur F.C.', :league => 'Premier League
-', :country => 'England', :manager => 'Mauricio Pochettino',
-:image => 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/800px-Tottenham_Hotspur.svg.png', :sportdb_id => 133616)
+# c4 = Club.create(:name =>'Tottenham Hotspur F.C.', :league => 'Premier League
+# ', :country => 'England', :manager => 'Mauricio Pochettino',
+# :image => 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/800px-Tottenham_Hotspur.svg.png', :sportdb_id => 133616)
 
-c5 = Club.create(:name =>'Liverpool FC', :league => 'Premier League
-', :country => 'England', :manager => 'Jürgen Klopp',
-:image => 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg', :sportdb_id => 133602)
+# c5 = Club.create(:name =>'Liverpool FC', :league => 'Premier League
+# ', :country => 'England', :manager => 'Jürgen Klopp',
+# :image => 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg', :sportdb_id => 133602)
 
-c6 = Club.create(:name =>'Real Madred', :league => 'Laliga
-', :country => 'Spain', :manager => 'Zinédine Zidane',
-:image => 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg', :sportdb_id => 133738)
+# c6 = Club.create(:name =>'Real Madred', :league => 'Laliga
+# ', :country => 'Spain', :manager => 'Zinédine Zidane',
+# :image => 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg', :sportdb_id => 133738)
 
-c7 = Club.create(:name =>'Manchester United', :league => 'Premier League
-    ', :country => 'England', :manager => 'Ole Gunnar Solskjar',
-    :image => '', :sportdb_id => 33)
+# c7 = Club.create(:name =>'Manchester United', :league => 'Premier League
+#     ', :country => 'England', :manager => 'Ole Gunnar Solskjar',
+#     :image => '', :sportdb_id => 33)
 
-    Club.destroy_all
-    clubs_url = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League"
-    clubs_data = HTTParty.get clubs_url
+#     Club.destroy_all
+#     clubs_url = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League"
+#     clubs_data = HTTParty.get clubs_url
     
-    club = clubs_data['teams']
+#     club = clubs_data['teams']
 
-    club.each do |club|
-        new_club = Club.new 
-     new_club.name = club["strTeam"]
+#     club.each do |club|
+#         new_club = Club.new 
+#      new_club.name = club["strTeam"]
          
-        new_club.league = club["strLeague"]
-        new_club.country = club["strCountry"]
-        new_club.manager = club["strManager"]
-        new_club.image = club["strTeamLogo"]
-        new_club.sportdb_id = club["idTeam"]
+#         new_club.league = club["strLeague"]
+#         new_club.country = club["strCountry"]
+#         new_club.manager = club["strManager"]
+#         new_club.image = club["strTeamLogo"]
+#         new_club.sportdb_id = club["idTeam"]
          
-        new_club.save
-    end
-puts "#{Club.count} clubs created"
+#         new_club.save
+#     end
+# puts "#{Club.count} clubs created"
 
 
-Player.destroy_all
-playersId = [34145937, 34145395, 34146220, 34145408]
-teamsId = [133602,133616,133604]
-#playersId = [ 34146220]
-# clubs = Club.all 
-# clubs.each do |club|
-     player_count = 0;
 
-      #club_sportsdb_id = club[sportsdb_id] 
+    
+    
+                    #playersId = [ 34146220]
+                    # clubs = Club.all 
+                    # clubs.each do |club|
+                    player_count = 0;
 
+                    #club_sportsdb_id = club[sportsdb_id] 
 
-    playersId.each do |playerId|
+     Player.destroy_all
+     teamsId = [133602,133616,133604,133738,133714,133739,133690]
         teamsId.each do |teamId|
-        url_for_players= "https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=#{playerId}"
-         team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=#{teamId}"
-        teamData = HTTParty.get team_url
-        data = HTTParty.get url_for_players
-        teamsData = teamData['teams']
-        teamsData.each do |team|
-        #    puts team["strTeam"]
-    
-        
-        players = data['players'] 
-        players.each do |player|
-        
-            new_player = Player.new
-            # puts "#{club['sportdb_id']} sport id"
-            #  puts "#{player["idTeam"]} players id team"
-            if  player["idTeam"] == team["idTeam"]
+            
+             team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=#{teamId}"
+             teamData = HTTParty.get team_url
+             teamsData = teamData['teams']
+             teamsData.each do |team|
+             #    puts team["strTeam"]
+        playersId = [34145937, 34145395, 34146220, 34145408,34146370,34145508,
+                34145506,34161375,34159231,34162098,34146371]
+        playersId.each do |playerId|
+            
+            url_for_players= "https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=#{playerId}"
+            data = HTTParty.get url_for_players
+             players = data['players'] 
+             players.each do |player|
+                
+                    if  player["idTeam"] == team["idTeam"]
+             new_player = Player.new
+             # puts "#{club['sportdb_id']} sport id"
+             #  puts "#{player["idTeam"]} players id team"
+           
                 
                 new_player.team =team["strTeam"]  
-                new_player.team = team['strTeamLogo']
+                new_player.teamLogo = team['strTeamBadge']
                 new_player.name =  player['strPlayer']
                 new_player.dob = player["dateBorn"]   
                 new_player.position = player["strPosition"]    
@@ -129,11 +133,12 @@ teamsId = [133602,133616,133604]
                 new_player.nationality = player["strNationality"]   
                 new_player.image = player["strThumb"] 
                 
+              
                 new_player.save
-        
                 # club.players << new_player
                 # sleep(1)
-            end
+             end
+             
             end
         end 
     end
@@ -159,23 +164,23 @@ s2= Stadium.create(:name => 'Arena Corinthians', :built => '2014', :country => '
 puts "#{ Stadium.count } stadia created"
 
 # Associations #################################################################
-puts "players and clubs"
-c1.players << p1
-c1.players << p2
-c1.players << p3
-c3.players << p4
-c3.players << p5
-c5.players << p6
-c4.players << p7
-c6.players << p8
+# puts "players and clubs"
+# c1.players << p1
+# c1.players << p2
+# c1.players << p3
+# c3.players << p4
+# c3.players << p5
+# c5.players << p6
+# c4.players << p7
+# c6.players << p8
 
-puts "Clubs and Stadia"
-c1.stadia << s1
-c2.stadia << s2
+# puts "Clubs and Stadia"
+# c1.stadia << s1
+# c2.stadia << s2
 
-puts "Confederations and Clubs"
-co1.clubs << c1
-co2.clubs << c2
+# puts "Confederations and Clubs"
+# co1.clubs << c1
+# co2.clubs << c2
 
 puts "Stadiums and Confederations"
 co1.stadiums << s1
