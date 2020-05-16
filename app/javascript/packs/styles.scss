@@ -260,9 +260,15 @@ body {
 .tableBody{
   padding-top: 50px;
   margin-top: 40px;
+  
+  width:100%;
+
 }
 .table{
-  margin-top: 18px;
+  margin-top: 14px;
+  text-align: left;
+  position: relative;
+  border-collapse: collapse;
 }
 .new_palyer{
   padding-top: 100px;
@@ -270,6 +276,8 @@ body {
 .newPlayerForm{
   width: 600px;
   margin: auto;
+  padding-top: 40px;
+    color: white;
 }
 .btn-primary {
     color: #fff;
@@ -278,10 +286,22 @@ body {
 }
 .newPlayerFormContainer{
   background: url('https://images.unsplash.com/photo-1522778526097-ce0a22ceb253?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80') no-repeat center fixed;
-
-
+  background-size: cover;
     width: max-width;
-    height: auto;
+    height: 36rem;
+    margin-top: -20px;
     box-shadow: 2em;
 
 }
+
+.sticky {
+  position: sticky;
+top: -900px;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 10px;
+}
+
