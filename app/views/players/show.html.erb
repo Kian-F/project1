@@ -1,5 +1,8 @@
+<div class="showPlayer">
 <h2><%= @player.name %></h2>
-  <%= image_tag @player.image, :class => 'feature' if @player.image.present? %>
+<div class='playerPic'>
+<%= image_tag @player.image, :class => 'feature' if @player.image.present? %>
+  </div>
 <ul>
   <li>Nationality: <%= @player.nationality %></li>
   <li>Date of birth: <%= @player.dob.strftime '%A, %B %e, %Y' if @player.dob.present? %></li>
@@ -7,8 +10,10 @@
   <li>Position: <%= @player.position %></li>
   <li>Club: <%= @player.club.try(:name) %></li>
 </ul>
-
-<div class="controls">
-  <%= link_to "Edit Player", edit_player_path(@player) %>
-  <%= link_to "Delete #{ @player.name }", @player, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
 </div>
+<div class="controls">
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><%= link_to "Edit Player", edit_player_path(@player) %></button>
+  
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><%= link_to "Delete #{ @player.name }", @player, :method => 'delete', :data => { :confirm => 'Are you sure?' } %></button>
+</div>
+
