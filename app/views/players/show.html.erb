@@ -1,19 +1,22 @@
 <div class="showPlayer">
-<h2><%= @player.name %></h2>
+<h2></h2>
 <div class='playerPic'>
-<%= image_tag @player.image, :class => 'feature' if @player.image.present? %>
+<%= image_tag @player.image, :class => "playerPic" if @player.image.present? %>
   </div>
-<ul>
-  <li>Nationality: <%= @player.nationality %></li>
-  <li>Date of birth: <%= @player.dob.strftime '%A, %B %e, %Y' if @player.dob.present? %></li>
-  <li>marke Value: <%= @player.market_value %></li>
-  <li>Position: <%= @player.position %></li>
-  <li>Club: <%= @player.club.try(:name) %></li>
+<ul class='playerli'>
+   <h4><%= @player.name %></h4>
+  <li><b><span style="color:green">Nationality:</span></b><%= @player.nationality %></li>
+  <li><b><span style="color:green">Date Of Birth:</span></b> <%= @player.dob.strftime '%A, %B %e, %Y' if @player.dob.present? %></li>
+  <li><b><span style="color:green">Marke Value:</span></b> <%= @player.market_value %></li>
+  <li><b><span style="color:green">Position:</span></b> <%= @player.position %></li>
+  <li><b><span style="color:green">Club:</span></b> <%= @player.club.try(:name) %></li>
 </ul>
 </div>
 <div class="controls">
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><%= link_to "Edit Player", edit_player_path(@player) %></button>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit" >
+<%= link_to "Edit Player", edit_player_path(@player) %></button>
   
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ><%= link_to "Delete #{ @player.name }", @player, :method => 'delete', :data => { :confirm => 'Are you sure?' } %></button>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >
+  <%= link_to "Delete #{ @player.name }", @player, :method => 'delete', :data => { :confirm => 'Are you sure?' } %></button>
 </div>
 
