@@ -1,4 +1,27 @@
+require 'open-uri'
+require 'json'
 
+url = "http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=a7543ef6fc8f452299648799693daa21"
+
+#   url ="https://newsapi.org/v2/top-headlines?country=us&apiKey=a7543ef6fc8f452299648799693daa21"
+# req = open(url)
+# response_body = req.read
+# # puts response_body
+
+# articles = response_body['articles']
+             
+# response_body.each do |"article"|
+#     puts article["name"]
+
+    data = HTTParty.get url
+    
+             articles = data['articles'] 
+             articles.each do |article|
+                      puts  article["source"]['name']
+                      puts article["author"]
+
+
+end
 
 User.destroy_all
 u1 = User.create :email => 'kian@gmail.com', :password => 'chicken', :admin => true
@@ -100,6 +123,9 @@ puts "#{User.count} users created"
 
                     #club_sportsdb_id = club[sportsdb_id] 
 
+             
+
+
      Player.destroy_all
      teamsId = [133602,133616,133604,133738,133714,133739,133690]
         teamsId.each do |teamId|
@@ -107,6 +133,7 @@ puts "#{User.count} users created"
              team_url = "https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=#{teamId}"
              teamData = HTTParty.get team_url
              teamsData = teamData['teams']
+             
              teamsData.each do |team|
              #    puts team["strTeam"]
         playersId = [34145937, 34145395, 34146220, 34145408,34146370,34145508,
