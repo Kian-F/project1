@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root :to => 'pages#home'
-
+  # root :to => 'pages#home'
+ 
+  root to: 'stories#top'
    resources :users, :only => [:new, :create, :index, :show]
 
    get '/login' => 'session#new'

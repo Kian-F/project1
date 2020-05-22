@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-#  before_action :check_for_login
+before_action :check_for_login
 
   def index
     @players = Player.order 'market_value DESC'
@@ -9,7 +9,7 @@ class PlayersController < ApplicationController
     @players = @current_user.players
     render :index
   end
-
+  
   def new
     @player = Player.new
   end

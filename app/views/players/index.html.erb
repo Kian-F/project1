@@ -24,7 +24,7 @@
           <td scope="col"><%= link_to player.name, player_path(player.id) %></td>
           <td scope="col"><%= player.nationality %></td>
           <%# <td scope="col"><%= player.club.try(:name) <%= image_tag(player.club.image,  :class =>'tiny')if player.club.present?</td> %>  %>
-          <td scope="col"><%= player.team %> <%= image_tag(player.teamLogo,  :class =>'tiny')%></td> 
+          <td scope="col"><%= player.team %> <%= image_tag(player.teamLogo,  :class =>'tiny') if player.teamLogo.present?%></td> 
           <td scope="col"><%= number_to_currency player.market_value, :unit => '€'  if player.market_value? %></td>
           <td scope="col"><%= player.position %></td>
           <td scope="col"><%= ((Time.zone.now - player.dob.to_time) / 1.year.seconds).floor if player.dob.present? %></td>
