@@ -12,26 +12,25 @@ module Newsapi
         get("item/#{id}")
       end
   
-      def articles
-        get('articles')
-      end
+    #   def articles
+    #     get('articles')
+    #   end
 
-      def topstories(start = 0, per_page = 10, expand = true)
-        stories = get('topstories')[start...start + per_page]
+    #   def articles(start = 0, per_page = 10, expand = true)
+    #     stories = get('articles')[start...start + per_page]
       
-        if expand
-          stories.map! do |story|
-            item(story)
-          end
-        end
+    #     if expand
+    #       stories.map! do |story|
+    #         item(story)
+    #       end
+    #     end
       
-        stories
-      end
+    #     stories
+    #   end
   
-      private
-      url = "http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=a7543ef6fc8f452299648799693daa21"
+
   
-      def get(url)
+      def articles
         # response = Excon.get(
         #   'https://' + @host + '/' + path + '.json?print=pretty',
         #   headers: {
@@ -39,17 +38,18 @@ module Newsapi
         #     'x-rapidapi-key' => @key,
         #   }
         # )
+        url = "http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=a7543ef6fc8f452299648799693daa21"
 
-        data = HTTParty.get path
+        data = HTTParty.get url
             puts data
         articles = data['articles'] 
         articles.each do |article|
                  puts  article["source"]['name']
                  puts article["author"]
   
-        return false if response.status != 200
+        # return false if response.status != 200
     
-        JSON.parse(response.body)
+        # JSON.parse(response.body)
       end
     end
   end
