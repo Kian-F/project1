@@ -41,15 +41,15 @@ module Newsapi
         url = "http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=a7543ef6fc8f452299648799693daa21"
 
         data = HTTParty.get url
-            puts data
+        
         articles = data['articles'] 
         articles.each do |article|
-                 puts  article["source"]['name']
-                 puts article["author"]
+                #  puts  article["source"]['name']
+                #  puts article["author"]
   
         # return false if response.status != 200
     
-        # JSON.parse(response.body)
+        # JSON.parse(articles.body)
       end
     end
   end
