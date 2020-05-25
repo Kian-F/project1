@@ -4,9 +4,9 @@
   "dependencies": {
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.7",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.16.0",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "tablesort": "^5.1.0",
     "turbolinks": "^5.2.0"
   },
