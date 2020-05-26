@@ -6,7 +6,7 @@ class StoriesController < ApplicationController
 
      
 
-    def index 
-        @stories = client.topstories()
-    end
+    # def index 
+    #     @stories = client.topstories()
+    # end
   end

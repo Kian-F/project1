@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_action :fetch_user
+  before_action :fetch_user
 
   def client
     @client ||= Newsapi::Client.new
@@ -12,15 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def check_for_login
-    redirect_to login_path unless @current_user.present?
+    redirect_to root_login unless @current_user.present?
   end
 
   def check_for_admin
     redirect_to root_path unless @current_user.present? && @current_user.admin?
   end
-
-  
-   
     
 
 end

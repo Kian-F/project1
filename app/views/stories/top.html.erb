@@ -1,104 +1,49 @@
+<div class="container-fluid">
+  
+  <h1 class="my-4 font-weight-bold">Masonry - images option</h1>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Product example · Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.2/examples/product/">
-
-    <!-- Bootstrap core CSS -->
-<link href="/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="product.css" rel="stylesheet">
-  </head>
-  <body>
-
-
- <% @stories.each do |story| %>
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
- 
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5"><%= story['title'].text-uppercase %></h2>
-      <p class="lead"><%= story['source']['name'] %></p>
+  <div class="grid">
+    <div class="grid-sizer"></div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/food3.jpg" />
     </div>
-    <% if story["urlToImage"].present?  %>
-    
-    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-    <img class="card-img-top"  <%= image_tag story["urlToImage"]%>
-     <% end %></div>
-     <a class="btn btn-primary" href="<%= story['url'] %>">Read The Story</a>
-     <p style='color:white'><%= Date.parse(story['publishedAt'])%></p>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image02.jpg" />
+    </div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image002.jpg" />
+    </div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image06.jpg" />
+    </div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image008.jpg" />
+    </div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image005.jpg" />
+    </div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image010.jpg" />
+    </div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image18.jpg" />
+    </div>
+    <div class="grid-item">
+      <img src="https://mdbootstrap.com/img/Photos/Others/image17.jpg" />
+    </div>
   </div>
+  
 </div>
-<% end %>
+<%# <script>
+// init Masonry
+var $grid = $('.grid').masonry({
+  itemSelector: '.grid-item',
+  percentPosition: true,
+  columnWidth: '.grid-sizer'
+});
 
-
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2" focusable="false" role="img"><title>Product</title><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
-      <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Features</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Cool stuff</a></li>
-        <li><a class="text-muted" href="#">Random feature</a></li>
-        <li><a class="text-muted" href="#">Team feature</a></li>
-        <li><a class="text-muted" href="#">Stuff for developers</a></li>
-        <li><a class="text-muted" href="#">Another one</a></li>
-        <li><a class="text-muted" href="#">Last time</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Resource</a></li>
-        <li><a class="text-muted" href="#">Resource name</a></li>
-        <li><a class="text-muted" href="#">Another resource</a></li>
-        <li><a class="text-muted" href="#">Final resource</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Business</a></li>
-        <li><a class="text-muted" href="#">Education</a></li>
-        <li><a class="text-muted" href="#">Government</a></li>
-        <li><a class="text-muted" href="#">Gaming</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Team</a></li>
-        <li><a class="text-muted" href="#">Locations</a></li>
-        <li><a class="text-muted" href="#">Privacy</a></li>
-        <li><a class="text-muted" href="#">Terms</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script></body>
-</html>
+// layout Masonry after each image loads
+$grid.imagesLoaded().progress( function() {
+  $grid.masonry();
+});  
+</script> %>
