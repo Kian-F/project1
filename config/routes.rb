@@ -10,7 +10,7 @@ Rails.application.routes.draw do
    get '/login' => 'session#show'
    delete '/login' => 'session#destroy'
 
-  get '/players/my' => 'players#my_players', as: 'my_players'
+   get '/players/my' => 'players#my_players', as: 'my_players'
   resources :players
 
 

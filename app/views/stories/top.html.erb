@@ -1,49 +1,38 @@
-<div class="container-fluid">
-  
-  <h1 class="my-4 font-weight-bold">Masonry - images option</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="grid">
-    <div class="grid-sizer"></div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/food3.jpg" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Simple Transfer Market</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+   <% @stories.each do |story| %>
+<div class="card-deck">
+  <div class="card">
+   <% if story["urlToImage"].present?  %>
+    <img class="card-img-top"  <%= image_tag story["urlToImage"]%>
+    <div class="card-body">
+      <h5 class="card-title"><%= story['title'].upcase %> </h5>
+       <a class="btn btn-primary" id='story' href="<%= story['url'] %>">Read The Story</a>
     </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image02.jpg" />
-    </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image002.jpg" />
-    </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image06.jpg" />
-    </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image008.jpg" />
-    </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image005.jpg" />
-    </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image010.jpg" />
-    </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image18.jpg" />
-    </div>
-    <div class="grid-item">
-      <img src="https://mdbootstrap.com/img/Photos/Others/image17.jpg" />
+    <div class="card-footer">
+      <small class="text-muted"><%= Date.parse(story['publishedAt'])%></small>
     </div>
   </div>
-  
-</div>
-<%# <script>
-// init Masonry
-var $grid = $('.grid').masonry({
-  itemSelector: '.grid-item',
-  percentPosition: true,
-  columnWidth: '.grid-sizer'
-});
+  <% end %>
+  <% end %>
 
-// layout Masonry after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry();
-});  
-</script> %>
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+</body>
+
+</html>
