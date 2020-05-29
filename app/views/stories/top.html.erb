@@ -23,7 +23,7 @@
    <% if story["urlToImage"].present?  %>
     <img class="card-img-top"  <%= image_tag story["urlToImage"]%>
     <div class="card-body">
-      <h5 class="card-title"><%= story['title'].upcase %> </h5>
+      <h5 class="card-title"><%= story['title'] %> </h5>
        <a class="btn btn-primary" id='story' href="<%= story['url'] %>">Read The Story</a>
     </div>
     <div class="card-footer">

@@ -9,6 +9,17 @@
 *, ::after, ::before {
     box-sizing: border-box;
 }
+body{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color:black;
+  font-family: "Montserrat", sans-serif;
+  
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  background:  #247532;
+  
+}
 // .container {
 //   display: flex;
 //     flex-direction: row;
@@ -104,13 +115,13 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
-  background: #333;
+// body {
+//   padding-top: 3rem;
+//   padding-bottom: 3rem;
+//   color: #5a5a5a;
+//   background: #333;
 
-}
+// }
 
 
 /* CUSTOMIZE THE CAROUSEL
