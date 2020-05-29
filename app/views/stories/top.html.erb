@@ -16,6 +16,8 @@
 
   
    <% @stories.each do |story| %>
+   <div class="row">
+    <div class="col-sm">
 <div class="card-deck">
   <div class="card">
    <% if story["urlToImage"].present?  %>
@@ -27,6 +29,8 @@
     <div class="card-footer">
       <small class="text-muted"><%= Date.parse(story['publishedAt'])%></small>
     </div>
+  </div>
+  </div>
   </div>
   <% end %>
   <% end %>
