@@ -14,6 +14,28 @@
 This project is a web app that allows users(agents) to create an account and add their clients' s(football players) to the database.  The other users can see a list of the players and their details. It utilizes thesportsdb API.
 ### [Live Site - hosted on Heroku](https://simple-transfer-market.herokuapp.com/).
 
+## How to get started
+### Feel free to clone this repository.
+
+To run locally, run the following in the root directory in the terminal:
+
+1. npm install
+2. bundle install
+3. rails db:create
+4. rails db:migrate
+5. rails db:seed
+6. rails s
+
+## Motivation
+The aim of this project was to deliver an app that:
+
+- Implemented at least 3 models, with associations
+- Is a CRUD system in Rails
+- Handles invalid data
+- Uses Gems
+- Has basic authentication and authorisation
+- Is deployed to Heroku
+##### This was my second project at General Assembly's Software Engineering Immersive course at Sydney.
 
 ## Technologies
 * Ruby on Rails
