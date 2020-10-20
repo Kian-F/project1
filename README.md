@@ -3,16 +3,25 @@
 
 ## Table of Contents
 - Introduction
+- Screenshots
 - Technologies
 - Gems
 - Key Features
 - Learnings
 - Further Development
-- Screenshots
+
 
 # Introduction
 A web app that allows users(agents) to create an account and add their clients' s(football players) with their market value, current club, position, etc to the database.  The other users can see a detailed list of the players and sort the list. It utilizes thesportsdb API.
 ### [Live Site - hosted on Heroku](https://simple-transfer-market.herokuapp.com/).
+## Screenshots
+
+#### Home
+![Home page](/app/assets/images/project1-homepage.JPG)
+#### Table
+![All Players](/app/assets/images/project1.png)
+#### Add New Player
+![Add new Player](/app/assets/images/project1-addPlayer.JPG)
 
 ## How to get started
 ### Feel free to clone this repository.
@@ -65,13 +74,6 @@ The aim of this project was to deliver an app that:
 ## Further Development
 * **Search** - adding search function.
 
-## Screenshots
 
-#### Home
-![Home page](/app/assets/images/project1-homepage.JPG)
-#### Table
-![All Players](/app/assets/images/project1.png)
-#### Add New Player
-![Add new Player](/app/assets/images/project1-addPlayer.JPG)
 ----
 
